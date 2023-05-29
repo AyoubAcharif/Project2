@@ -1,0 +1,51 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to our website</h1>
+    <p class="lead">Our project consists of measuring the length of an object passing on the conveyor and displaying the measurements on this site.</p>
+    <hr class="my-4">
+    
+    <p class="lead">
+        <a class="btn btn-primary btn-lg mr-3" href="/current-scans" role="button">Last Measure</a>
+        <a class="btn btn-success btn-lg" href="/history" role="button">History</a>
+    </p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card border-primary mb-4">
+                <div class="card-body text-primary">
+                    <h2>About Raspberry Pi 4</h2>
+                    <p>Raspberry Pi 4 is a powerful single-board computer that offers great computing capabilities at an affordable price. It is widely used for various projects and applications, including home automation, robotics, and IoT.</p>
+                    <a class="btn btn-primary" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" target="_blank" role="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-success mb-4">
+                <div class="card-body text-success">
+                    <h2>Our Project Features</h2>
+                    <ul>
+                        <li>Accurate length measurement of objects on the conveyor</li>
+                        <li>Real-time display of measurements on the site</li>
+                        <li>Historical data storage for analysis and tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-danger mb-4">
+                <div class="card-body text-danger">
+                    <h2>About IR Obstacle Sensor</h2>
+                    <p>The IR obstacle sensor is a device used to detect the presence of objects in its vicinity by emitting and detecting infrared signals. It is commonly used in automation systems and robotics to ensure safety and prevent collisions.</p>
+                    <a class="btn btn-danger" href="https://arduinogetstarted.com/tutorials/arduino-infrared-obstacle-avoidance-sensor" target="_blank" role="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

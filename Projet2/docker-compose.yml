@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  node:
+    image: "node:18"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./app:/home/node/app
+    command: "npm run dev"
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - net-project
+    depends_on:
+      - db
+
+  db:
+    image: hypriot/rpi-mysql
+    environment:
+       - MYSQL_ROOT_PASSWORD=root
+       - MYSQL_DATABASE=db
+    restart: always
+    volumes:
+       - ./data:/var/lib/mysql
+    ports:
+      - 3308:3306
+    networks:
+       - net-project
+
+  pma:
+    image: phpmyadmin
+    ports:
+      - 8081:80
+    restart: always
+    networks:
+      - net-project
+    depends_on:
+      - db
+
+volumes:
+  data:
+
+networks:
+  net-project:
+    driver: bridge

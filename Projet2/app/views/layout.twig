@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<title>Projet 2</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://www.helha.be/app/themes/helha/icon/favicon.ico" rel="icon" type="image/x-icon">
+
+		{% block styles %}
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		{% endblock %}
+
+	</head>
+
+	<body>
+		{% include "nav.twig" %}
+		{% block body %}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="alert alert-primary" role="alert">
+							<strong>Content non available.</strong>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		{% endblock %}
+
+
+		<!-- Remove the container if you want to extend the Footer to full width. -->
+		<div class="container my-5">
+			<section
+				class="">
+				<!-- Footer -->
+				<footer
+					class="text-center text-white" style="background-color: #346837;">
+					<!-- Grid container -->
+					<div
+						class="container ">
+						<!-- Section: CTA -->
+						<section class="">
+							<p class="d-flex justify-content-center align-items-center">
+								<span class="me-3">Work done by Mathias and Ayoub © 2023 Copyright
+								</span>
+							</p>
+						</section>
+						<!-- Section: CTA -->
+					</div>
+					<!-- Grid container -->
+				</footer>
+				<!-- Footer -->
+			</section>
+		</div>
+		<!-- End of .container -->
+
+
+	</body>
+
+
+</html>

@@ -1,0 +1,56 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+	<div class="container mt-4" id="table-container">
+		<h2 id="current-readings">Favorites</h2>
+
+		{% set sequenceIds = [] %}
+		{% for measure in measures %}
+			{% if measure.idSequence not in sequenceIds %}
+				{% set sequenceIds = sequenceIds|merge([measure.idSequence]) %}
+			{% endif %}
+		{% endfor %}
+
+		{% set sortedSequenceIds = sequenceIds|sort %}
+
+		<div class="text-center mb-3">
+			<div class="btn-group" role="group" aria-label="Sequence Tabs">
+				<button type="button" class="btn btn-secondary tab-button active" data-sequence="all">All Sequences</button>
+				{% for sequenceId in sortedSequenceIds %}
+					<button type="button" class="btn btn-secondary tab-button" data-sequence="{{ sequenceId }}">{{ sequenceId }}</button>
+				{% endfor %}
+			</div>
+		</div>
+
+		{% for sequenceId in sortedSequenceIds %}
+			<div class="tab-content" id="tab-{{ sequenceId }}">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Date and Time</th>
+							<th>Sequence ID</th>
+							<th>ID</th>
+							<th>Length (cm)</th>
+						</tr>
+					</thead>
+					<tbody id="measure-data-{{ sequenceId }}">
+						{% for measure in measures %}
+							{% if sequenceId == 'all' or measure.idSequence == sequenceId %}
+								<tr id="measure-{{ measure.idMeasures }}">
+									<td>{{ measure.time }}</td>
+									<td>{{ measure.idSequence }}</td>
+									<td>{{ measure.idMeasures }}</td>
+									<td>{{ measure.length }}</td>
+								</tr>
+							{% endif %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endfor %}
+	</div>
+
+	<script src="/javascripts/commscript.js"></script>
+	<script src="/javascripts/history.js"></script>
+	<script src="/javascripts/allSeq.js"></script>
+{% endblock %}
