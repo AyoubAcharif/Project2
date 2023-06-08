@@ -81,7 +81,7 @@ router.get('/api/data', function (req, res) {
 });
 
 router.post('/api/add-to-favorite', function (req, res) {
-  const idMeasures = req.body.idMeasures; // Assuming the ID is sent in the request body
+  const idMeasures = req.body.idMeasures; 
 
   // Perform the database query to add the measure ID to the favorite table
   const query = 'INSERT INTO favorite (idMeasures) VALUES (?)';
